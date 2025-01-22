@@ -130,7 +130,8 @@ void binaryToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 }
  ```
 
-![2](2.png)
+![2](https://github.com/user-attachments/assets/846d4d85-6a40-4c48-892f-fd3cff998daf)
+
 
 ## Multi Neuron (Çok Nöron) Modeli
 Çok nöronlu bir model, birden fazla nöronun aynı katmanda çalıştığı yapıdır. Her nöron, giriş verilerini bağımsız olarak işler ve genellikle farklı bir sınıfa veya çıktı değerine karşılık gelir.
@@ -197,7 +198,9 @@ void binaryToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 	delete[] w;
 }
 ```
-![3](3.png)
+
+![3](https://github.com/user-attachments/assets/8366285b-d02c-45c7-a481-d9cc96418494)
+
 #### Delta Rule
 ```c++
 void continuouslyToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
@@ -256,7 +259,7 @@ void continuouslyToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 	delete[] delta;
 }
 ```
-![4](4.png)
+![4](https://github.com/user-attachments/assets/18661666-f809-4473-88e6-910eec523070)
 
 ## Multi-Layer Neural Networks (Çok Katmanlı Ağlar)
 Çok katmanlı yapay sinir ağları, birden fazla gizli katman içeren ve daha karmaşık problemlerde kullanılan modellerdir. Bu ağlar doğrusal olmayan problemlerde yüksek performans gösterir.
@@ -450,9 +453,10 @@ void train(const std::vector<Samples>& samples, const std::vector<std::vector<do
     }
 }
 ```
-![5](5.png)
+![5](https://github.com/user-attachments/assets/619874d2-c11d-4b82-93d3-955d3b9cf0b6)
 
-### Proje esnasında ortak kullanılan fonksiyonlar
+### Proje esnasında or
+tak kullanılan fonksiyonlar
 #### YPoint
 ```c++
 double YPoint(int x, double* w, int multiplier)
