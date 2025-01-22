@@ -1,0 +1,12 @@
+C:\Users\asari\source\repos\YSA_Project\YSA_Project\x64\Debug\YSA_Project.vcxproj.AssemblyReference.cache
+C:\Users\asari\source\repos\YSA_Project\YSA_Project\x64\Debug\YSA_Project.MyForm.resources
+C:\Users\asari\source\repos\YSA_Project\YSA_Project\x64\Debug\YSA_Project.vcxproj.GenerateResource.cache
+D:\ktü\Yapay Sinir Ağları\YSA_Project\YSA_Project\YSA_Project\x64\Debug\YSA_Project.vcxproj.AssemblyReference.cache
+D:\ktü\Yapay Sinir Ağları\YSA_Project\YSA_Project\YSA_Project\x64\Debug\YSA_Project.MyForm.resources
+D:\ktü\Yapay Sinir Ağları\YSA_Project\YSA_Project\YSA_Project\x64\Debug\YSA_Project.vcxproj.GenerateResource.cache
+D:\ktü\Yapay Sinir Ağları\YSA_Project v2\YSA_Project\YSA_Project\x64\Debug\YSA_Project.vcxproj.AssemblyReference.cache
+D:\ktü\Yapay Sinir Ağları\YSA_Project v2\YSA_Project\YSA_Project\x64\Debug\YSA_Project.MyForm.resources
+D:\ktü\Yapay Sinir Ağları\YSA_Project v2\YSA_Project\YSA_Project\x64\Debug\YSA_Project.vcxproj.GenerateResource.cache
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\x64\Debug\YSA_Project.vcxproj.AssemblyReference.cache
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\x64\Debug\YSA_Project.MyForm.resources
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\x64\Debug\YSA_Project.vcxproj.GenerateResource.cache

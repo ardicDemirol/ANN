@@ -1,0 +1,28 @@
+﻿  MyForm.cpp
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\MyForm.h(463,25): warning C4566: character represented by universal-character-name '\uFFFD' cannot be represented in the current code page (1254)
+  (compiling source file 'MyForm.cpp')
+  
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\MyForm.h(706,21): warning C4566: character represented by universal-character-name '\uFFFD' cannot be represented in the current code page (1254)
+  (compiling source file 'MyForm.cpp')
+  
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\MyForm.h(581,75): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'MyForm.cpp')
+  
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\MyForm.h(581,71): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'MyForm.cpp')
+  
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\MyForm.h(588,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'MyForm.cpp')
+  
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\MyForm.h(593,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'MyForm.cpp')
+  
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\MyForm.h(594,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'MyForm.cpp')
+  
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\MyForm.h(642,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  (compiling source file 'MyForm.cpp')
+  
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\YSA_Project\MyForm.cpp(8,6): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  YSA_Project.vcxproj -> D:\ktü\Yapay Sinir Ağları\Project\YSA_Project\x64\Debug\YSA_Project.exe
