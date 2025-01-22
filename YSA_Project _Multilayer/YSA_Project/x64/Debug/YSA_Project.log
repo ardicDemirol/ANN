@@ -1,0 +1,8 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (YSA_Project.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  MyForm.cpp
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project _Multilayer\YSA_Project\MyForm.h(365,24): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'MyForm.cpp')
+  
+D:\ktü\Yapay Sinir Ağları\Project\YSA_Project _Multilayer\YSA_Project\MyForm.cpp(8,6): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  YSA_Project.vcxproj -> D:\ktü\Yapay Sinir Ağları\Project\YSA_Project _Multilayer\x64\Debug\YSA_Project _Multilayer.exe
