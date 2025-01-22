@@ -69,8 +69,7 @@ void binaryToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 	}
 }
  ```
-
-![1](1.png)
+![1](https://github.com/user-attachments/assets/c18f0f5d-ae3e-497d-aa65-de90b6e0f2ea)
 
  #### Delta Rule
  ```c++
