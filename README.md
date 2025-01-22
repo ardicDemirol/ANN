@@ -1,4 +1,3 @@
-[rapor.md](https://github.com/user-attachments/files/18504681/rapor.md)
 # Tek ve Çok Katmanlı Yapay Sinir Ağları
 
 Tek ve çok katmanlı yapay sinir ağları, giriş verilerini işleyerek belirli bir çıktı üretmek üzere tasarlanmış matematiksel modellerdir. Tek katmanlı ağlar temel problemler için yeterli olurken, çok katmanlı ağlar daha karmaşık problemlerde kullanılır.
