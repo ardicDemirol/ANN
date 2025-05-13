@@ -454,8 +454,7 @@ void train(const std::vector<Samples>& samples, const std::vector<std::vector<do
 ```
 ![5](https://github.com/user-attachments/assets/619874d2-c11d-4b82-93d3-955d3b9cf0b6)
 
-### Proje esnasında or
-tak kullanılan fonksiyonlar
+### Proje esnasında ortak kullanılan fonksiyonlar
 #### YPoint
 ```c++
 double YPoint(int x, double* w, int multiplier)
