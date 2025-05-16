@@ -1,36 +1,40 @@
-# Tek ve Çok Katmanlı Yapay Sinir Ağları
+# Single and Multi-Layer Artificial Neural Networks
 
-Tek ve çok katmanlı yapay sinir ağları, giriş verilerini işleyerek belirli bir çıktı üretmek üzere tasarlanmış matematiksel modellerdir. Tek katmanlı ağlar temel problemler için yeterli olurken, çok katmanlı ağlar daha karmaşık problemlerde kullanılır.
+Single and multi-layer artificial neural networks are mathematical models designed to process input data and produce a specific output. Single-layer networks are suitable for basic problems, while multi-layer networks are used for more complex tasks.
 
-## Single Neuron (Tek Nöron) Modeli
-Bir yapay nöron, biyolojik nöronun çalışma prensibini taklit eden matematiksel bir modeldir. Tek bir nöron, giriş değerlerini alır, ağırlıklarla çarpar, bir aktivasyon fonksiyonundan geçirir ve bir çıkış üretir.
+## Single Neuron Model
 
-### Girişler (Inputs)
-- **Girişler (Inputs)**: x₁, x₂, ..., xₙ
-- **Ağırlıklar (Weights)**: Her giriş xᵢ, bir ağırlık wᵢ ile çarpılır.
-- **Net Giriş (Weighted Sum)**: Net giriş, tüm ağırlıklandırılmış girişlerin toplamıdır:
+An artificial neuron is a mathematical model that mimics the working principle of a biological neuron. A single neuron receives input values, multiplies them by weights, and passes the result through an activation function to produce an output.
+
+### Inputs
+
+- **Inputs**: x₁, x₂, ..., xₙ
+- **Weights**: Each input xᵢ is multiplied by a weight wᵢ.
+- **Weighted Sum (Net Input)**: The net input is the sum of all weighted inputs:
 
 ```
 z = Σ(wᵢ * xᵢ) + b
 ```
 
-Burada b, bias (sapma) terimidir.
+Here, b is the bias term.
 
-### Aktivasyon Fonksiyonu
-z değerine aktivasyon fonksiyonu uygulanarak çıkış hesaplanır:
+### Activation Function
+
+The output is calculated by applying the activation function to the value of z:
 
 ```
 y = f(z)
 ```
 
-Aktivasyon fonksiyonları doğrusal veya doğrusal olmayan türde olabilir:
-- **Doğrusal**: f(z) = z
+Activation functions can be linear or non-linear:
+- **Linear**: f(z) = z
 - **Sigmoid**: f(z) = 1 / (1 + e⁻ᶻ)
-- **Adım Fonksiyonu (Step)**: f(z) = 1, z ≥ 0; aksi halde f(z) = 0.
+- **Step Function**: f(z) = 1, z ≥ 0; otherwise f(z) = 0.
 
-### Two Classes Single Layer için kodlar
+### Codes for Two Classes Single Layer
 #### Perceptron Rule
- ```c++
+
+```c++
 void binaryToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
 	drawRandomWeights();
@@ -56,30 +60,31 @@ void binaryToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 		}
 
 		if (allCorrect) {
-			MessageBox::Show("Ogrenme Basariyla Tamamlandi");
+			MessageBox::Show("Learning Completed Successfully");
 			drawLine(Color::Red, w, 1, 2);
 			break;
 		}
 	}
 
 	if (iteration >= maxEpoch) {
-		MessageBox::Show("Maximum donguye ulasildi!");
+		MessageBox::Show("Maximum number of epochs reached!");
 		isClassSelectionValid();
 	}
 }
- ```
+```
+
 ![1](https://github.com/user-attachments/assets/c18f0f5d-ae3e-497d-aa65-de90b6e0f2ea)
 
- #### Delta Rule
- ```c++
- void continuouslyToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
+#### Delta Rule
+
+```c++
+void continuouslyToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 	double** w = initializeWeights(classSize);
 	double* delta = new double[classSize];
 
 	normalizeData(p, size);
 	shuffle_data(p, size);
 	drawNormalizedPoints(p);
-
 
 	int iteration = 0;
 	bool allCorrect = false;
@@ -113,10 +118,10 @@ void binaryToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 	}
 
 	if (allCorrect) {
-		MessageBox::Show("Ogrenme Basariyla Tamamlandi");
+		MessageBox::Show("Learning Completed Successfully");
 		for (int c = 0; c < classSize; c++) drawLine(SetColor(c), w[c], normalizeDrawMultiplier, 2);
 	}
-	else MessageBox::Show("Maximum donguye ulasildi!");
+	else MessageBox::Show("Maximum number of epochs reached!");
 
 	for (int c = 0; c < classSize; c++) {
 		if (w[c] != nullptr) {
@@ -127,39 +132,45 @@ void binaryToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 	delete[] w;
 	delete[] delta;
 }
- ```
+```
 
 ![2](https://github.com/user-attachments/assets/846d4d85-6a40-4c48-892f-fd3cff998daf)
 
+---
 
-## Multi Neuron (Çok Nöron) Modeli
-Çok nöronlu bir model, birden fazla nöronun aynı katmanda çalıştığı yapıdır. Her nöron, giriş verilerini bağımsız olarak işler ve genellikle farklı bir sınıfa veya çıktı değerine karşılık gelir.
+## Multi Neuron Model
 
-### Girişler ve Çıkışlar
-- **Girişler (Inputs)**: x₁, x₂, ..., xₙ tüm nöronlar için ortak girişlerdir.
-- **Çıkışlar (Outputs)**: Her nöron, kendi ağırlıklarına ve aktivasyon fonksiyonuna bağlı olarak bir çıktı üretir:
+A multi-neuron model is a structure where multiple neurons operate in the same layer. Each neuron processes the input data independently and usually produces an output for a different class or value.
+
+### Inputs and Outputs
+
+- **Inputs**: x₁, x₂, ..., xₙ are common inputs for all neurons.
+- **Outputs**: Each neuron produces an output depending on its weights and activation function:
 
 ```
 yⱼ = fⱼ(Σ(wⱼᵢ * xᵢ) + bⱼ)
 ```
 
-Burada:
-- j: Nöronun indeksidir.
-- wⱼᵢ: j. nöronun i. giriş için ağırlığıdır.
-- bⱼ: j. nöronun bias terimidir.
-- fⱼ: j. nöronun aktivasyon fonksiyonudur.
+Here:
+- j: Index of the neuron.
+- wⱼᵢ: Weight of the j-th neuron for the i-th input.
+- bⱼ: Bias term of the j-th neuron.
+- fⱼ: Activation function of the j-th neuron.
 
-### Öğrenme Süreci
-Çok nöronlu modelde her nöronun ağırlıkları bağımsız olarak öğrenilir. Genellikle, "One-vs-All" (OvA) yaklaşımı kullanılır:
-- Her nöron, bir sınıfı diğerlerinden ayırmaya çalışır.
-- Hata fonksiyonu tüm nöronlar için ayrı ayrı hesaplanır ve minimize edilir.
+### Learning Process
 
-### Kullanım Alanları
-- **Çok Sınıflı Sınıflandırma (Multi-Class Classification)**: Birden fazla sınıfı ayırt edebilen yapılar.
-- **Regression (Doğrusal Olmayan Regresyon)**: Karmaşık çıktılar üretebilen sistemler.
+In the multi-neuron model, the weights of each neuron are learned independently. Typically, the "One-vs-All" (OvA) approach is used:
+- Each neuron tries to distinguish one class from the others.
+- The error function is calculated and minimized separately for each neuron.
 
-### Multi Classes Single Layer için kodlar
+### Application Areas
+
+- **Multi-Class Classification**: Structures that can distinguish more than one class.
+- **Nonlinear Regression**: Systems that can produce complex outputs.
+
+### Codes for Multi Classes Single Layer
 #### Perceptron Rule
+
 ```c++
 void binaryToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 	int iteration = 0;
@@ -187,10 +198,10 @@ void binaryToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 	}
 
 	if (allCorrect) {
-		MessageBox::Show("Ogrenme Basariyla Tamamlandi");
+		MessageBox::Show("Learning Completed Successfully");
 		for (int c = 0; c < classSize; c++) drawLine(SetColor(c), w[c], 1, 2);
 	}
-	else MessageBox::Show("Maximum donguye ulasildi!");
+	else MessageBox::Show("Maximum number of epochs reached!");
 
 	for (int i = 0; i < classSize; i++) delete[] w[i];
 
@@ -201,6 +212,7 @@ void binaryToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 ![3](https://github.com/user-attachments/assets/8366285b-d02c-45c7-a481-d9cc96418494)
 
 #### Delta Rule
+
 ```c++
 void continuouslyToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 	double** w = initializeWeights(classSize);
@@ -209,7 +221,6 @@ void continuouslyToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 	normalizeData(p, size);
 	shuffle_data(p, size);
 	drawNormalizedPoints(p);
-
 
 	int iteration = 0;
 	bool allCorrect = false;
@@ -243,10 +254,10 @@ void continuouslyToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 	}
 
 	if (allCorrect) {
-		MessageBox::Show("Ogrenme Basariyla Tamamlandi");
+		MessageBox::Show("Learning Completed Successfully");
 		for (int c = 0; c < classSize; c++) drawLine(SetColor(c), w[c], normalizeDrawMultiplier, 2);
 	}
-	else MessageBox::Show("Maximum donguye ulasildi!");
+	else MessageBox::Show("Maximum number of epochs reached!");
 
 	for (int c = 0; c < classSize; c++) {
 		if (w[c] != nullptr) {
@@ -258,49 +269,60 @@ void continuouslyToolStripMenuItem1_Click(Object^ sender, EventArgs^ e) {
 	delete[] delta;
 }
 ```
+
 ![4](https://github.com/user-attachments/assets/18661666-f809-4473-88e6-910eec523070)
 
-## Multi-Layer Neural Networks (Çok Katmanlı Ağlar)
-Çok katmanlı yapay sinir ağları, birden fazla gizli katman içeren ve daha karmaşık problemlerde kullanılan modellerdir. Bu ağlar doğrusal olmayan problemlerde yüksek performans gösterir.
+---
 
-### Yapısı
-- **Giriş Katmanı**: Veri ağın girişine aktarılır.
-- **Gizli Katmanlar (Hidden Layers)**: Her katman, bir önceki katmandan gelen çıktıları işler ve bir sonraki katmana aktarır.
-- **Çıkış Katmanı**: Son katman, ağın nihai çıktısını üretir.
+## Multi-Layer Neural Networks
 
-Her nöron, önceki katmandan gelen verileri işler:
+Multi-layer artificial neural networks are models containing more than one hidden layer and are used in more complex problems. These networks perform well in nonlinear problems.
+
+### Structure
+
+- **Input Layer**: Data is transferred to the network.
+- **Hidden Layers**: Each layer processes the outputs from the previous layer and passes them to the next layer.
+- **Output Layer**: The last layer produces the final output of the network.
+
+Each neuron processes the data from the previous layer:
 
 ```
 zₖ = Σ(wₖⱼ * yⱼ) + bₖ
 ```
 
-### Aktivasyon Fonksiyonları
-Çok katmanlı ağlarda aktivasyon fonksiyonları, ağın doğrusal olmayan öğrenme yeteneğini artırır:
+### Activation Functions
+
+Activation functions in multi-layer networks increase the nonlinear learning capability of the network:
 - **ReLU (Rectified Linear Unit)**: f(z) = max(0, z)
 - **Tanh**: f(z) = (eᶻ - e⁻ᶻ) / (eᶻ + e⁻ᶻ)
-- **Softmax**: Çok sınıflı sınıflandırmalarda kullanılır:
+- **Softmax**: Used in multi-class classification:
 
 ```
 fᵢ(z) = eᶻⁱ / Σ(eᶻʲ)
 ```
 
-### Öğrenme Süreci
-Çok katmanlı ağlarda, öğrenme işlemi genellikle "Backpropagation" (geri yayılım) algoritmasıyla gerçekleştirilir. Bu algoritma, hata fonksiyonunu minimize etmek için ağırlıkları günceller.
+### Learning Process
 
-### Kullanım Alanları
-- Görüntü işleme, doğal dil işleme ve zaman serisi analizleri gibi karmaşık problemlerde kullanılır.
-- Derin öğrenme (Deep Learning) modellerinin temelini oluşturur.
+In multi-layer networks, the learning process is usually carried out with the "Backpropagation" algorithm. This algorithm updates the weights to minimize the error function.
 
-## Sınırlamaları
-- Hesaplama maliyeti yüksektir.
-- Büyük veri setlerine ihtiyaç duyar.
-- Aşırı öğrenme (overfitting) riski taşır.
+### Application Areas
 
-## Avantajları
-- Karmaşık problemlerde yüksek doğruluk sağlar.
-- Doğrusal olmayan problemlerde etkili çözümler sunar.
+- Used in complex problems such as image processing, natural language processing, and time series analysis.
+- Forms the basis of deep learning models.
 
-### Multi Classes Multi Layer için kodlar
+## Limitations
+
+- High computational cost.
+- Requires large datasets.
+- Risk of overfitting.
+
+## Advantages
+
+- High accuracy in complex problems.
+- Effective solutions for nonlinear problems.
+
+### Codes for Multi Classes Multi Layer
+
 ```c++
 void multiLayer_Click(Object^ sender, EventArgs^ e)
 {
@@ -324,7 +346,7 @@ void multiLayer_Click(Object^ sender, EventArgs^ e)
 	}
 
 	if (samples.size() != targets.size()) {
-		std::cerr << "Örnek sayısı ve hedef sayısı aynı değil!" << std::endl;
+		std::cerr << "Sample count and target count do not match!" << std::endl;
 		delete mlp;
 		return;
 	}
@@ -368,7 +390,6 @@ void multiLayer_Click(Object^ sender, EventArgs^ e)
 	delete g;
 	delete mlp;
 }
-
 
 MultiLayerPerceptron(int inputSize, int hiddenSize, int outputSize, double learningRate) {
     this->inputSize = inputSize;
@@ -432,7 +453,6 @@ void backward(const Samples& sample, const std::vector<double>& target) {
     }
 }
 
-
 void train(const std::vector<Samples>& samples, const std::vector<std::vector<double>>& targets, int epochs) {
     for (int epoch = 0; epoch < epochs; ++epoch) {
         double totalError = 0.0;
@@ -452,10 +472,15 @@ void train(const std::vector<Samples>& samples, const std::vector<std::vector<do
     }
 }
 ```
+
 ![5](https://github.com/user-attachments/assets/619874d2-c11d-4b82-93d3-955d3b9cf0b6)
 
-### Proje esnasında ortak kullanılan fonksiyonlar
+---
+
+### Commonly Used Functions in the Project
+
 #### YPoint
+
 ```c++
 double YPoint(int x, double* w, int multiplier)
 {
@@ -463,48 +488,62 @@ double YPoint(int x, double* w, int multiplier)
 	return ((double)(-1 * (double)multiplier * w[2] - w[0] * x) / (double)(w[1]));
 }
 ```
+
 #### sigmoid
+
 ```c++
 double sigmoid(double net) 
 {
 	return 1.0 / (1.0 + exp(-net));
 }
 ```
+
 #### sigmoidDerivative
+
 ```c++
 double sigmoidDerivative(double net)
 {
 	return sigmoid(net) * (1 - sigmoid(net));
 }
 ```
+
 #### thresholdOut
+
 ```c++
 double thresholdOut(double out)
 {
 	return out > 0.5 ? 1 : 0;
 }
 ```
+
 #### getError
+
 ```c++
 double getError(double target, double result){
 	return target - result;
 }
 ```
+
 #### getErrorDelta
+
 ```c++
 double getErrorDelta(double target, double result) 	
 {
 	return (0.5 * pow(target - result, 2));
 }
 ```
+
 #### getY
+
 ```c++
 double getY(double* weight, double x1, double x2)
 {
 	return (weight[0] * x1) + (weight[1] * x2) + weight[2];
 }
 ```
+
 #### updateWeights
+
 ```c++
 void updateWeights(double* weights, double x1, double x2, double delta, double learning_rate)
 {
@@ -512,9 +551,10 @@ void updateWeights(double* weights, double x1, double x2, double delta, double l
 	weights[1] += (learning_rate * delta * x2);
 	weights[2] += (learning_rate * delta);
 }
-
 ```
+
 #### normalizeData
+
 ```c++
 void normalizeData(Samples* data, int size)
 {
@@ -542,7 +582,9 @@ void normalizeData(Samples* data, int size)
 
 }
 ```
+
 #### shuffleData
+
 ```c++
 void shuffleData(Samples* data, int size) {
 	std::random_device rd;
